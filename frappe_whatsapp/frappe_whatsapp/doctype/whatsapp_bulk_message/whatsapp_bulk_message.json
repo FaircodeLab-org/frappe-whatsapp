@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-03-03 06:32:15.551733",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "template_preview",
+  "show_leads",
+  "show_customers",
+  "lead_recipients",
+  "customer_recipients",
+  "column_break_lzvl",
+  "reference_doctype",
+  "parameters",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Link",
+   "label": "Template name",
+   "options": "WhatsApp Templates"
+  },
+  {
+   "fieldname": "parameters",
+   "fieldtype": "Table",
+   "label": "Parameters",
+   "options": "WhatsApp Message Fields"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nSent\nFailed"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Select",
+   "label": "Reference Doctype",
+   "options": "\nLead\nCustomer"
+  },
+  {
+   "fieldname": "column_break_lzvl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.show_leads == 1\n",
+   "fieldname": "lead_recipients",
+   "fieldtype": "Table",
+   "label": "Lead Recipients",
+   "options": "Lead recipients"
+  },
+  {
+   "depends_on": "eval:doc.show_customers == 1\n",
+   "fieldname": "customer_recipients",
+   "fieldtype": "Table",
+   "label": "Customer Recipients",
+   "options": "Customer recipients"
+  },
+  {
+   "default": "0",
+   "fieldname": "show_leads",
+   "fieldtype": "Check",
+   "label": "Lead"
+  },
+  {
+   "default": "0",
+   "fieldname": "show_customers",
+   "fieldtype": "Check",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "template_preview",
+   "fieldtype": "Long Text",
+   "label": "Template preview",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-04 15:23:05.718830",
+ "modified_by": "Administrator",
+ "module": "Frappe Whatsapp",
+ "name": "Whatsapp bulk message",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
